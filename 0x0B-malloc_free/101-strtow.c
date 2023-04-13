@@ -7,7 +7,7 @@ char **strtow(char *str);
 
 /**
  * word_len - locates the index marking the end of the
- * 		first word contained within a string
+ * first word contained within a string
  * @str: the string to be searched
  * Return: the index marking the endd of the initial word pointed to by str
  */
@@ -72,10 +72,11 @@ char **strtow(char *str)
 		return (NULL);
 
 	for (w = 0; w < words; w++)
+	{
 
 		while (str[index] == ' ')
 			index++;
-		
+
 		letters = word_len(str + index);
 
 		strings[w] = malloc(sizeof(char) * (letters + 1));
@@ -94,8 +95,9 @@ char **strtow(char *str)
 			strings[w][l] = str[index++];
 
 		strings[w][l] = '\0';
-}
+	}
+	strings[w] = NULL;
 
-return (strings);
+	return (strings);
 
 }
